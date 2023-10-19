@@ -1,10 +1,3 @@
-<script setup>
-import { ref } from 'vue'
-
-const brgy = ref ('')
-
-</script>
-
 <template>
     <div class="form">
         <select v-model="brgy">
@@ -17,13 +10,45 @@ const brgy = ref ('')
         <p v-else-if="brgy == '2'">Bariis</p>
         <p v-else-if="brgy == '3'">Kapihan sa Bulod</p>
     </div>
-
+    <div class="box text-center">
+        <img :src="imageURL" alt="">
+    </div>
 </template>
 
-<style>
+<script setup>
+import { ref, computed } from 'vue'
+
+const brgy = ref('')
+const imageURL = computed(() => {
+  switch (brgy.value) {
+    case '1':
+      return 'src/images/aaggg.jpg'
+    case '2':
+      return 'src/images/bbbbb.jpg'
+    case '3':
+      return 'src/images/kim.jpg'
+    default:
+      return ''
+  }
+})
+</script>
+
+<style scoped>
 .form {
     position: absolute;
     top: 20%;
     left: 20%;
 }
+
+.images {
+    position: absolute;
+    top: 50%;
+    
+}
+
+.box {
+    
+}
 </style>
+
+
