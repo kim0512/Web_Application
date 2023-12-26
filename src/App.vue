@@ -1,54 +1,10 @@
-<template>
-    <div class="form">
-        <select v-model="brgy">
-            <option value="" disabled>Choose from Options</option>
-            <option value="1">Zone 2</option>
-            <option value="2">Santa Remedios</option>
-            <option value="3">Butag</option>
-        </select>
-        <p v-if="brgy == '1'">Sabang Park</p>
-        <p v-else-if="brgy == '2'">Bariis</p>
-        <p v-else-if="brgy == '3'">Kapihan sa Bulod</p>
-    </div>
-    <div class="box text-center">
-        <img :src="imageURL" alt="">
-    </div>
-</template>
-
 <script setup>
-import { ref, computed } from 'vue'
+import Flexbox from './component/Flexbox.vue'
+import Quiz from './component/Quiz.vue'
 
-const brgy = ref('')
-const imageURL = computed(() => {
-  switch (brgy.value) {
-    case '1':
-      return 'src/images/aaggg.jpg'
-    case '2':
-      return 'src/images/bbbbb.jpg'
-    case '3':
-      return 'src/images/kim.jpg'
-    default:
-      return ''
-  }
-})
 </script>
 
-<style scoped>
-.form {
-    position: absolute;
-    top: 20%;
-    left: 20%;
-}
-
-.images {
-    position: absolute;
-    top: 50%;
-    
-}
-
-.box {
-    
-}
-</style>
-
-
+<template>
+<Quiz/>
+<Flexbox/>
+</template>
